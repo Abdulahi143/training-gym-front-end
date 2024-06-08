@@ -17,18 +17,12 @@
       <video autoplay muted loop id="bg-video">
         <source src="images/hero-video2.mp4" type="video/mp4" />
       </video>
-      <header class="sticky-header" id="#">
-        <!-- Hamburger menu -->
-        <div class="hamburger">
-          <i class="fa-solid fa-bars" data-visible="true"></i>
-          <i class="fa-solid fa-close" data-visible="false"></i>
-        </div>
-
+      <header class="hero-header">
         <!-- Desktop Menu -->
-        <nav class="container desktop-menu ">
+        <nav class="container desktop-menu">
           <h1 class="logo">Training<span class="logo2">Studio</span></h1>
           <ul class="menu-links">
-            <li><a href="#">Home</a></li>
+            <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#classes">Classes</a></li>
             <li><a href="#schedules">Schedules</a></li>
@@ -36,8 +30,12 @@
             <button class="btn">Sign Up</button>
           </ul>
         </nav>
-
-        <!-- Mobile Menus -->
+        <!-- Hamburger menu -->
+        <div class="hamburger">
+          <i class="fa-solid fa-bars" data-visible="true"></i>
+          <i class="fa-solid fa-close" data-visible="false"></i>
+        </div>
+        <!-- Mobile Menu -->
         <nav class="mobile-menu" data-visible="false">
           <ul class="menu-links">
             <li><a href="#home">Home</a></li>
@@ -49,6 +47,24 @@
           </ul>
         </nav>
       </header>
+
+      <header class="sticky-header hidden">
+        <!-- Desktop Menu -->
+        <nav class="container desktop-menu">
+          <h1 class="logo">Training<span class="logo2">Studio</span></h1>
+          <ul class="menu-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#classes">Classes</a></li>
+            <li><a href="#schedules">Schedules</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <button class="btn">Sign Up</button>
+          </ul>
+        </nav>
+
+
+      </header>
+
       <section class="hero">
         <div class="container">
           <h6>WORK HARDER, GET STRONGER</h6>
@@ -394,43 +410,47 @@
 
       <section class="map-contact" id="contact">
         <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.272417957998!2d45.31558737581472!3d2.0469396589370357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3d584350066ff35f%3A0xbc797e57882a871d!2sSuuqa%20Bakaaraha!5e0!3m2!1sen!2sse!4v1717783248321!5m2!1sen!2sse" width="950" height="680" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.272417957998!2d45.31558737581472!3d2.0469396589370357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3d584350066ff35f%3A0xbc797e57882a871d!2sSuuqa%20Bakaaraha!5e0!3m2!1sen!2sse!4v1717860750337!5m2!1sen!2sse"
+            width="800"
+            height="600"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
+
         <div class="contact-side">
           <div class="contact-form">
             <div class="inputs">
               <div class="name-email">
-                <input
-                  type="text"
-                  class="name"
-                  placeholder="Enter Your Name*"
-                />
+                <input type="text" class="name" placeholder="Your Name*" />
                 <input
                   type="email"
                   name=""
                   id=""
                   class="email"
-                  placeholder="Enter Your Email*"
+                  placeholder="Your Email*"
                 />
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  class="subject"
+                  placeholder="Subject"
+                />
+                <textarea
+                  name="message"
+                  id=""
+                  class="message"
+                  placeholder="Message"
+                ></textarea>
               </div>
-              <input
-                type="text"
-                name=""
-                id=""
-                class="subject"
-                placeholder="Subject"
-              />
-              <textarea
-                name="message"
-                id=""
-                placeholder="Message"
-                rows="6"
-              ></textarea>
               <button class="btn">Send Message</button>
             </div>
           </div>
         </div>
-
       </section>
 
       <footer>

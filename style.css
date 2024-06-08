@@ -13,6 +13,11 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 :root {
   --mostUsedColor: #e15239;
   --blue: #007bff;
@@ -94,9 +99,7 @@ img {
   max-width: 1120px;
   margin-inline: auto;
 }
-
 /* Header and Navs */
-
 header {
   width: 100%;
   height: 5rem;
@@ -110,6 +113,13 @@ header {
 
 .sticky-header {
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
   transition: all 0.5s ease 0s;
 }
 
@@ -126,28 +136,17 @@ header {
   color: black;
 }
 
-.sticky-header {
-  background-color: white;
-  color: black;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s ease 0s;
-}
-
 /* Mobile Nav */
-
 .hamburger {
   display: none;
 }
 
 .mobile-menu {
   display: none;
-}
-
-.mobile-menu {
   background-color: var(--white);
   margin-inline: auto;
   border-top: 1px solid #d6d6d6;
-  position: fixed;
+  position: absolute;
   left: 4%;
   right: 4%;
   transform: translateY(-100%);
@@ -168,7 +167,6 @@ header {
 }
 
 /* Desktop Nav */
-
 .desktop-menu {
   display: flex;
   justify-content: space-between;
@@ -183,10 +181,12 @@ header {
   color: white;
   line-height: 5rem;
 }
+
 .logo {
   display: flex;
   gap: 0.2rem;
 }
+
 .desktop-menu .logo span {
   color: var(--mostUsedColor);
   font-style: normal;
@@ -213,6 +213,24 @@ header {
   color: var(--mostUsedColor);
   transition: all 0.3s ease 0s;
 }
+
+.menu-links a.active {
+  color: var(--mostUsedColor);
+}
+
+.hidden {
+  display: none;
+}
+.visible {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+
+
 
 .btn {
   display: block;
@@ -701,69 +719,6 @@ header {
   transition: 0.3s all ease-in-out;
 }
 
-/* map and form */
-
-.map-contact {
-  width: 99%;
-  display: flex;
-  margin-inline: auto;
-  margin-top: 8.75rem;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-.map {
-  height: 100%;
-  width: 50%;
-}
-
-.contact-side {
-  padding: 5rem;
-  background-image: url(images/contact-bg.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 50%;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  height: 95%;
-  background-color: #fff;
-  border-radius: 0.5rem;
-  padding: 2.5rem;
-}
-
-.inputs {
-  margin-bottom: 20px;
-}
-
-.inputs input[type="text"],
-.inputs input[type="email"],
-.inputs textarea {
-  width: 100%;
-  line-height: 40px;
-  padding: 0px 10px;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.subject,
-.name,
-.email {
-  display: block;
-}
-
-.name-email {
-  display: flex;
-  gap: 1.5rem;
-}
-
-textarea {
-  resize: none;
-}
 /* Footer */
 
 footer {
@@ -788,16 +743,94 @@ footer a {
   justify-content: center;
 }
 
+
+/* contact and map section */
+.map-contact {
+  display: flex;
+  flex-direction: row;
+  width: 99%;
+  margin-inline: auto;
+}
+
+.map,
+.contact-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.map iframe {
+  width: 100%;
+  height: 600px;
+  border: 0;
+}
+
+.contact-side {
+  background: url(images/contact-bg.jpg);
+  padding: 2.5rem;
+}
+
+.contact-form {
+  background-color: #fff;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.contact-form .inputs {
+  width: 100%;
+}
+
+.contact-form .inputs .name-email {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+}
+
+.contact-form .inputs .name,
+.contact-form .inputs .email {
+  flex: 1 1 48%;
+}
+
+.contact-form .inputs .subject,
+.contact-form .inputs .message {
+  flex: 1 1 100%;
+}
+
+.contact-form .inputs input,
+.contact-form .inputs textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.8125rem;
+}
+
+.contact-form .inputs textarea {
+  height: 150px;
+  resize: none;
+}
+
+
+
+
+/* Media Queries */
+
+
 @media (max-width: 1024px) {
   .trainer {
     flex: 1 1 calc(50% - 20px);
   }
 }
 
-/* Media Quries */
 
 @media (max-width: 768px) {
-  /* Header Responsivness */
+  /* Header Responsiveness */
   .desktop-menu {
     background-color: var(--white);
     transition: 0.3s all ease-in-out;
@@ -906,12 +939,12 @@ footer a {
     text-transform: uppercase;
     color: #ed563b;
     font-weight: 500;
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap;
   }
 
   .program-text a {
     display: none;
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap;
   }
 
   .bottom-content .program {
@@ -931,23 +964,19 @@ footer a {
   }
 
   .map-contact {
+    width: 99%;
     display: flex;
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .map-contact {
     flex-direction: column;
   }
 
-  .contact-side {
-    width: 100%;
-  }
-
-  .contact-form {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .name,
-  .email {
-    width: 100%;
-    margin-right: 0; /* Resetting margin for full width */
+  .contact-form .inputs .name,
+  .contact-form .inputs .email {
+    flex: 1 1 100%;
   }
 
   footer {
